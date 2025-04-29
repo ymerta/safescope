@@ -1,94 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SafeScope</title>
-        <link rel="icon" href="logo/logo.png" type="image/png"> 
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-            }
-            h1 {
-                font-size: 2.4rem; 
-            }
-            .content {
-                flex: 1;
-            }
-    
-            footer {
-                background-color: #333;
-                color: white;
-                text-align: center;
-                padding: 1rem;
-            }
-        </style>
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeScope</title>
+    <link rel="icon" href="logo/logo.png" type="image/png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                url('images/constructionsite.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar {
+            background: #ffa600db !important;
+            backdrop-filter: blur(3px);
+            z-index: 1000;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000000 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #444444 !important;
+            font-weight: bold;
+            border-bottom: 2px solid #444444;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-primary {
+            background-color: #4A90E2;
+            border-color: #4A90E2;
+        }
+
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+
 <body>
-    <header class="bg-dark text-white py-3">
+    <header class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <h1 class="text-center">
-                SafeScope: Personal Protective Equipment (PPE) Control System
-            </h1>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Menu</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="#reports">Reports</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
+            <a class="navbar-brand" href="#">SafeScope</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">About The Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reports">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
-    <div class="content">
-        <section id="home" class="py-5">
-            <div class="container">
-               
-                <h2 class="text-center" > <img src="logo/logo.png" alt="SafeScope Logo" style="height: 50px; width: auto;"> About the Project</h2>
-                <p class="text-center">The main objectives of the “safeScope” project is to detect whether employees
-                    in workplaces use Personal Protective Equipment (PPE) and analyze risks of to
-                    occupational health and safety by using Artificial Intelligence. At the same time,
-                    it monitors whether people working with work machines are at a safe distance
-                    and prevents dangerous situations by using AI-powered visual monitoring for
-                    two key functions: proximity detection between humans and machinery and
-                    PPE (Personal Protective Equipment) compliance verification. An automatically
-                    detecting model will also be included in the system.</p>
-            </div>
-        </section>
+    <section class="hero" id="hero">
+        <div>
+            <img src="logo/logo3.png" style="height:80px;" class="mb-3" />
+            <h1 class="display-4"><span id="typewriter-title"></span></h1>
+            <p class="lead"><span id="typewriter-subtitle"></span></p>
+        </div>
+    </section>
 
-        <section id="reports" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center"><img src="logo/logo.png" alt="SafeScope Logo" style="height: 50px; width: auto;">Reports</h2>
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="reports/1-BMAS-ProjectIdea.pdf" target="_blank">1-Project Idea</a>
-                    <li class="list-group-item"><a href="reports/2-BMAS-Project Specifications Report.pdf" target="_blank">2-Project Specifications</a>
-                    <li class="list-group-item"><a href="reports/3-BMAS-ProjectAnalysisReport.pdf" target="_blank">3-Project Analysis</a>
-                    <li class="list-group-item"><a href="reports/4-BMAS-HighLevelDesignReport.pdf" target="_blank">4-High Level Design</a>
-                    </li>
-                </ul>
+    <section id="home" class="py-5">
+        <div class="container">
+            <h2 class="text-center">
+                <img src="logo/logo.png" alt="SafeScope Logo" style="height: 50px; width: auto;" />
+                About the Project
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <p class="text-start">
+                        The “SafeScope” project aims to revolutionize occupational safety through the integration of advanced Artificial Intelligence solutions in hazardous environments, particularly in construction and industrial zones.
+                    </p>
+    
+                    <p class="text-start">
+                        One of the central goals of the project is to ensure that employees wear Personal Protective Equipment (PPE) such as helmets, safety vests, gloves, and goggles at all times. By using real-time computer vision, the system can automatically verify the presence and correctness of this equipment without manual supervision.
+                    </p>
+    
+                    <p class="text-start">
+                        Moreover, SafeScope introduces a smart proximity detection system which constantly monitors the distance between employees and potentially dangerous machinery or vehicles. This AI-driven feature acts as an early warning system and significantly reduces the risk of collisions or workplace accidents.
+                    </p>
+    
+                    <p class="text-start">
+                        The visual detection model employed by SafeScope is based on deep learning techniques that are trained on thousands of annotated images. It uses object detection and pose estimation technologies to accurately interpret human presence and interaction with machinery and their surroundings.
+                    </p>
+    
+                    <p class="text-start">
+                        The system not only detects violations but also records them in a central database for compliance tracking and future analysis. Supervisors can access these logs to identify patterns, optimize workflows, and offer targeted training where safety breaches are most common.
+                    </p>
+    
+                    <p class="text-start">
+                        Another distinguishing feature of SafeScope is its scalability and flexibility. Whether it’s a small warehouse or a large construction site, the system can be easily deployed using standard IP cameras and lightweight hardware. This makes it a cost-effective and practical solution for companies of all sizes.
+                    </p>
+    
+                    <p class="text-start">
+                        In the long term, SafeScope is designed to not only improve workplace safety but also foster a culture of proactive risk management. With the integration of dashboards, real-time alerts, and compliance reports, the project transforms how organizations think about safety — from reactive to predictive.
+                    </p>
+    
+                    <p class="text-start">
+                        By combining modern artificial intelligence, automation, and data analytics, SafeScope represents a major step forward in the evolution of occupational health and safety technologies.
+                    </p>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <section id="reports" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                <img src="logo/logo.png" alt="SafeScope Logo" style="height: 50px; width: auto;" /> Reports
+            </h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>Project Idea</h5>
+                            <a href="reports/1-BMAS-ProjectIdea.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>Project Specifications</h5>
+                            <a href="reports/2-BMAS-Project Specifications Report.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>Project Analysis</h5>
+                            <a href="reports/3-BMAS-ProjectAnalysisReport.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>High Level Design</h5>
+                            <a href="reports/4-BMAS-HighLevelDesignReport.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>Low Level Design</h5>
+                            <a href="reports/5-BMAS-LowLevelDesignReport.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5>Test Plan</h5>
+                            <a href="reports/6-BMAS-TestPlanReport.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Report</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer id="contact">
         <div class="container">
-            <p>Contact: info@seniorproject.com</p>
+            <p>All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const titleText = "SafeScope";
+        const subtitleText = "AI-powered PPE and Proximity Control System";
+        let titleIndex = 0;
+        let subtitleIndex = 0;
+        const speed = 100;
+
+        function typeTitle() {
+            if (titleIndex < titleText.length) {
+                document.getElementById("typewriter-title").innerHTML += titleText.charAt(titleIndex);
+                titleIndex++;
+                setTimeout(typeTitle, speed);
+            } else {
+                setTimeout(typeSubtitle, 500);
+            }
+        }
+
+        function typeSubtitle() {
+            if (subtitleIndex < subtitleText.length) {
+                document.getElementById("typewriter-subtitle").innerHTML += subtitleText.charAt(subtitleIndex);
+                subtitleIndex++;
+                setTimeout(typeSubtitle, speed);
+            } else {
+                setTimeout(() => {
+                    document.getElementById("typewriter-title").innerHTML = "";
+                    document.getElementById("typewriter-subtitle").innerHTML = "";
+                    titleIndex = 0;
+                    subtitleIndex = 0;
+                    setTimeout(typeTitle, 1000);
+                }, 2000);
+            }
+        }
+
+        window.addEventListener('load', function () {
+            const heroSection = document.getElementById('hero');
+            if (heroSection) {
+                heroSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            typeTitle();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(current)) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
